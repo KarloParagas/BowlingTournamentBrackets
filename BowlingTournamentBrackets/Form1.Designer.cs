@@ -57,6 +57,7 @@
             this.SecondPlaceTxt.ReadOnly = true;
             this.SecondPlaceTxt.Size = new System.Drawing.Size(100, 20);
             this.SecondPlaceTxt.TabIndex = 19;
+            this.SecondPlaceTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FirstPlaceTxt
             // 
@@ -65,6 +66,7 @@
             this.FirstPlaceTxt.ReadOnly = true;
             this.FirstPlaceTxt.Size = new System.Drawing.Size(100, 20);
             this.FirstPlaceTxt.TabIndex = 18;
+            this.FirstPlaceTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -93,6 +95,7 @@
             this.Game3Txt2.ReadOnly = true;
             this.Game3Txt2.Size = new System.Drawing.Size(100, 20);
             this.Game3Txt2.TabIndex = 17;
+            this.Game3Txt2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game3Txt1
             // 
@@ -101,6 +104,7 @@
             this.Game3Txt1.ReadOnly = true;
             this.Game3Txt1.Size = new System.Drawing.Size(100, 20);
             this.Game3Txt1.TabIndex = 16;
+            this.Game3Txt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game2Txt4
             // 
@@ -109,6 +113,7 @@
             this.Game2Txt4.ReadOnly = true;
             this.Game2Txt4.Size = new System.Drawing.Size(100, 20);
             this.Game2Txt4.TabIndex = 15;
+            this.Game2Txt4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game2Txt3
             // 
@@ -117,6 +122,7 @@
             this.Game2Txt3.ReadOnly = true;
             this.Game2Txt3.Size = new System.Drawing.Size(100, 20);
             this.Game2Txt3.TabIndex = 14;
+            this.Game2Txt3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game2Txt2
             // 
@@ -125,6 +131,7 @@
             this.Game2Txt2.ReadOnly = true;
             this.Game2Txt2.Size = new System.Drawing.Size(100, 20);
             this.Game2Txt2.TabIndex = 13;
+            this.Game2Txt2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game2Txt1
             // 
@@ -133,6 +140,7 @@
             this.Game2Txt1.ReadOnly = true;
             this.Game2Txt1.Size = new System.Drawing.Size(100, 20);
             this.Game2Txt1.TabIndex = 12;
+            this.Game2Txt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -151,6 +159,7 @@
             this.Game1Txt8.ReadOnly = true;
             this.Game1Txt8.Size = new System.Drawing.Size(100, 20);
             this.Game1Txt8.TabIndex = 11;
+            this.Game1Txt8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game1Txt7
             // 
@@ -159,6 +168,7 @@
             this.Game1Txt7.ReadOnly = true;
             this.Game1Txt7.Size = new System.Drawing.Size(100, 20);
             this.Game1Txt7.TabIndex = 10;
+            this.Game1Txt7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game1Txt6
             // 
@@ -167,6 +177,7 @@
             this.Game1Txt6.ReadOnly = true;
             this.Game1Txt6.Size = new System.Drawing.Size(100, 20);
             this.Game1Txt6.TabIndex = 9;
+            this.Game1Txt6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game1Txt5
             // 
@@ -175,6 +186,7 @@
             this.Game1Txt5.ReadOnly = true;
             this.Game1Txt5.Size = new System.Drawing.Size(100, 20);
             this.Game1Txt5.TabIndex = 8;
+            this.Game1Txt5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game1Txt4
             // 
@@ -183,6 +195,7 @@
             this.Game1Txt4.ReadOnly = true;
             this.Game1Txt4.Size = new System.Drawing.Size(100, 20);
             this.Game1Txt4.TabIndex = 7;
+            this.Game1Txt4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game1Txt3
             // 
@@ -191,6 +204,7 @@
             this.Game1Txt3.ReadOnly = true;
             this.Game1Txt3.Size = new System.Drawing.Size(100, 20);
             this.Game1Txt3.TabIndex = 6;
+            this.Game1Txt3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game1Txt2
             // 
@@ -199,6 +213,7 @@
             this.Game1Txt2.ReadOnly = true;
             this.Game1Txt2.Size = new System.Drawing.Size(100, 20);
             this.Game1Txt2.TabIndex = 5;
+            this.Game1Txt2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Game1Txt1
             // 
@@ -207,6 +222,7 @@
             this.Game1Txt1.ReadOnly = true;
             this.Game1Txt1.Size = new System.Drawing.Size(100, 20);
             this.Game1Txt1.TabIndex = 4;
+            this.Game1Txt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // GenerateTournamentBtn
             // 
