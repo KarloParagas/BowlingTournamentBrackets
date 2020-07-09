@@ -48,6 +48,8 @@
             this.Game1Txt2 = new System.Windows.Forms.TextBox();
             this.Game1Txt1 = new System.Windows.Forms.TextBox();
             this.GenerateTournamentBtn = new System.Windows.Forms.Button();
+            this.ClearBtn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SecondPlaceTxt
@@ -226,7 +228,7 @@
             // 
             // GenerateTournamentBtn
             // 
-            this.GenerateTournamentBtn.Location = new System.Drawing.Point(431, 538);
+            this.GenerateTournamentBtn.Location = new System.Drawing.Point(431, 517);
             this.GenerateTournamentBtn.Name = "GenerateTournamentBtn";
             this.GenerateTournamentBtn.Size = new System.Drawing.Size(131, 23);
             this.GenerateTournamentBtn.TabIndex = 3;
@@ -234,11 +236,33 @@
             this.GenerateTournamentBtn.UseVisualStyleBackColor = true;
             this.GenerateTournamentBtn.Click += new System.EventHandler(this.GenerateTournamentBtn_Click);
             // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Location = new System.Drawing.Point(431, 546);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(131, 23);
+            this.ClearBtn.TabIndex = 20;
+            this.ClearBtn.Text = "Clear Brackets";
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(468, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 17);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Winners";
+            // 
             // TournamentBracketsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 573);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.GenerateTournamentBtn);
             this.Controls.Add(this.SecondPlaceTxt);
             this.Controls.Add(this.FirstPlaceTxt);
@@ -289,6 +313,8 @@
         private System.Windows.Forms.TextBox Game1Txt2;
         private System.Windows.Forms.TextBox Game1Txt1;
         private System.Windows.Forms.Button GenerateTournamentBtn;
+        private System.Windows.Forms.Button ClearBtn;
+        private System.Windows.Forms.Label label4;
     }
 }
 
