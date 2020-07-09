@@ -63,16 +63,6 @@ namespace BowlingTournamentBrackets
                     _file.Add(item);
                 }
             }
-
-            // TODO: Generate random players
-            Player1Row = 0;
-            Player2Row = 1;
-            Player3Row = 2;
-            Player4Row = 3;
-            Player5Row = 4;
-            Player6Row = 5;
-            Player7Row = 6;
-            Player8Row = 7;
         }
 
         private void TournamentBracketsForm_Load(object sender, EventArgs e)
@@ -124,6 +114,21 @@ namespace BowlingTournamentBrackets
         {
             // Disable the generate button
             GenerateTournamentBtn.Enabled = false;
+
+            #region Assign Players
+            // List to store all assigned players for randomization
+            List<int> assignedPlayerNums = new List<int>();
+
+            // Assign random players
+            Player1Row = GetPlayer(assignedPlayerNums);
+            Player2Row = GetPlayer(assignedPlayerNums);
+            Player3Row = GetPlayer(assignedPlayerNums);
+            Player4Row = GetPlayer(assignedPlayerNums);
+            Player5Row = GetPlayer(assignedPlayerNums);
+            Player6Row = GetPlayer(assignedPlayerNums);
+            Player7Row = GetPlayer(assignedPlayerNums);
+            Player8Row = GetPlayer(assignedPlayerNums);
+            #endregion
 
             #region Game 1
             // Add random players in the text boxes for game 1
@@ -231,6 +236,32 @@ namespace BowlingTournamentBrackets
                 SecondPlaceTxt.Text = $"{_tournament[bracket1WinnerRowG3, _name]} $10";
             }
             #endregion
+        }
+
+        private int GetPlayer(List<int> assignedPlayerNums)
+        {
+            Random rand = new Random();
+
+            bool keepGoing = true;
+            int playerNumber = -1;
+
+            while (keepGoing)
+            {
+                int num = rand.Next(0, 8);
+
+                if (!assignedPlayerNums.Contains(num))
+                {
+                    assignedPlayerNums.Add(num);
+                    keepGoing = false;
+                    playerNumber = num;
+                }
+                else
+                {
+                    keepGoing = true;
+                }
+            }
+
+            return playerNumber;
         }
 
         private void ClearBtn_Click(object sender, EventArgs e)
