@@ -85,9 +85,9 @@ namespace BowlingTournamentBrackets
                 }
             }
 
-            /*
-                Once finished, the multi-dimensional array should look like this:
+            #region Once finished, the multi-dimensional array should look like this:
 
+            /*             
                            G1    G2    G3
                 Ava     | 253 | 251 | 268
                 ---------------------------
@@ -107,19 +107,36 @@ namespace BowlingTournamentBrackets
 
              */
 
+            #endregion
+
             _tournament = tournamentDataArray;
         }
 
+        /// <summary>
+        /// Runs the tournament simulation.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GenerateTournamentBtn_Click(object sender, EventArgs e)
         {
+            #region Assumptions
+
+            /*
+                - Text file is valid and well formed with "Name Score1 Score2 Score3", per line.
+                - Text file contains 8 players with 3 scores each.
+             */
+
+            #endregion
+
             // Disable the generate button
             GenerateTournamentBtn.Enabled = false;
 
             #region Assign Players
+
             // List to store all assigned players for randomization
             List<int> assignedPlayerNums = new List<int>();
 
-            // Assign random players
+            // Assign random player numbers to each field
             Player1Row = GetPlayer(assignedPlayerNums);
             Player2Row = GetPlayer(assignedPlayerNums);
             Player3Row = GetPlayer(assignedPlayerNums);
@@ -128,10 +145,13 @@ namespace BowlingTournamentBrackets
             Player6Row = GetPlayer(assignedPlayerNums);
             Player7Row = GetPlayer(assignedPlayerNums);
             Player8Row = GetPlayer(assignedPlayerNums);
+
             #endregion
 
-            #region Game 1
-            // Add random players in the text boxes for game 1
+            #region Pre-Game
+
+            // Onces the player numbers have been assigned to the fields, 
+            // display them in the text boxes.
             Game1Txt1.Text = $"{_tournament[Player1Row, _name]} {_tournament[Player1Row, _game1Score]}";
             Game1Txt2.Text = $"{_tournament[Player2Row, _name]} {_tournament[Player2Row, _game1Score]}";
             Game1Txt3.Text = $"{_tournament[Player3Row, _name]} {_tournament[Player3Row, _game1Score]}";
@@ -140,104 +160,128 @@ namespace BowlingTournamentBrackets
             Game1Txt6.Text = $"{_tournament[Player6Row, _name]} {_tournament[Player6Row, _game1Score]}";
             Game1Txt7.Text = $"{_tournament[Player7Row, _name]} {_tournament[Player7Row, _game1Score]}";
             Game1Txt8.Text = $"{_tournament[Player8Row, _name]} {_tournament[Player8Row, _game1Score]}";
+
             #endregion
 
-            #region Game 2
-            int bracket1WinnerRowG2;
-            int bracket2WinnerRowG2;
-            int bracket3WinnerRowG2;
-            int bracket4WinnerRowG2;
+            #region Game 1
+
+            int game1Winner1;
+            int game1Winner2;
+            int game1Winner3;
+            int game1Winner4;
 
             // Player 1 vs Player 2
             if (Convert.ToInt32(_tournament[Player1Row, _game1Score]) > Convert.ToInt32(_tournament[Player2Row, _game1Score]))
             {
                 Game2Txt1.Text = $"{_tournament[Player1Row, _name]} {_tournament[Player1Row, _game2Score]}";
-                bracket1WinnerRowG2 = Player1Row;
+                game1Winner1 = Player1Row;
             }
             else 
             {
                 Game2Txt1.Text = $"{_tournament[Player2Row, _name]} {_tournament[Player2Row, _game2Score]}";
-                bracket1WinnerRowG2 = Player2Row;
+                game1Winner1 = Player2Row;
             }
 
             // Plater 3 vs Player 4
             if (Convert.ToInt32(_tournament[Player3Row, _game1Score]) > Convert.ToInt32(_tournament[Player4Row, _game1Score]))
             {
                 Game2Txt2.Text = $"{_tournament[Player3Row, _name]} {_tournament[Player3Row, _game2Score]}";
-                bracket2WinnerRowG2 = Player3Row;
+                game1Winner2 = Player3Row;
             }
             else 
             {
                 Game2Txt2.Text = $"{_tournament[Player4Row, _name]} {_tournament[Player4Row, _game2Score]}";
-                bracket2WinnerRowG2 = Player4Row;
+                game1Winner2 = Player4Row;
             }
 
             // Player 5 vs Player 6
             if (Convert.ToInt32(_tournament[Player5Row, _game1Score]) > Convert.ToInt32(_tournament[Player6Row, _game1Score]))
             {
                 Game2Txt3.Text = $"{_tournament[Player5Row, _name]} {_tournament[Player5Row, _game2Score]}";
-                bracket3WinnerRowG2 = Player5Row;
+                game1Winner3 = Player5Row;
             }
             else 
             {
                 Game2Txt3.Text = $"{_tournament[Player6Row, _name]} {_tournament[Player6Row, _game2Score]}";
-                bracket3WinnerRowG2 = Player6Row;
+                game1Winner3 = Player6Row;
             }
 
             // Player 7 vs Player 8
             if (Convert.ToInt32(_tournament[Player7Row, _game1Score]) > Convert.ToInt32(_tournament[Player8Row, _game1Score]))
             {
                 Game2Txt4.Text = $"{_tournament[Player7Row, _name]} {_tournament[Player7Row, _game2Score]}";
-                bracket4WinnerRowG2 = Player7Row;
+                game1Winner4 = Player7Row;
             }
             else 
             {
                 Game2Txt4.Text = $"{_tournament[Player8Row, _name]} {_tournament[Player8Row, _game2Score]}";
-                bracket4WinnerRowG2 = Player8Row;
+                game1Winner4 = Player8Row;
             }
+
             #endregion
 
-            #region Game 3
-            int bracket1WinnerRowG3;
-            int bracket2WinnerRowG3;
+            #region Game 2
 
-            if (Convert.ToInt32(_tournament[bracket1WinnerRowG2, _game2Score]) > Convert.ToInt32(_tournament[bracket2WinnerRowG2, _game2Score]))
+            int game2Winner1;
+            int game2Winner2;
+
+            // Game 2 bracket 1 winner vs Game 2 bracket 2 winner
+            if (Convert.ToInt32(_tournament[game1Winner1, _game2Score]) > Convert.ToInt32(_tournament[game1Winner2, _game2Score]))
             {
-                Game3Txt1.Text = $"{_tournament[bracket1WinnerRowG2, _name]} {_tournament[bracket1WinnerRowG2, _game3Score]}";
-                bracket1WinnerRowG3 = bracket1WinnerRowG2;
+                Game3Txt1.Text = $"{_tournament[game1Winner1, _name]} {_tournament[game1Winner1, _game3Score]}";
+                game2Winner1 = game1Winner1;
             }
             else 
             {
-                Game3Txt1.Text = $"{_tournament[bracket2WinnerRowG2, _name]} {_tournament[bracket2WinnerRowG2, _game3Score]}";
-                bracket1WinnerRowG3 = bracket2WinnerRowG2;
+                Game3Txt1.Text = $"{_tournament[game1Winner2, _name]} {_tournament[game1Winner2, _game3Score]}";
+                game2Winner1 = game1Winner2;
             }
 
-            if (Convert.ToInt32(_tournament[bracket3WinnerRowG2, _game2Score]) > Convert.ToInt32(_tournament[bracket4WinnerRowG2, _game2Score]))
+            // Game 2 bracket 3 winner vs Game 2 bracket 4 winner
+            if (Convert.ToInt32(_tournament[game1Winner3, _game2Score]) > Convert.ToInt32(_tournament[game1Winner4, _game2Score]))
             {
-                Game3Txt2.Text = $"{_tournament[bracket3WinnerRowG2, _name]} {_tournament[bracket3WinnerRowG2, _game3Score]}";
-                bracket2WinnerRowG3 = bracket3WinnerRowG2;
+                Game3Txt2.Text = $"{_tournament[game1Winner3, _name]} {_tournament[game1Winner3, _game3Score]}";
+                game2Winner2 = game1Winner3;
             }
             else
             {
-                Game3Txt2.Text = $"{_tournament[bracket4WinnerRowG2, _name]} {_tournament[bracket4WinnerRowG2, _game3Score]}";
-                bracket2WinnerRowG3 = bracket4WinnerRowG2;
+                Game3Txt2.Text = $"{_tournament[game1Winner4, _name]} {_tournament[game1Winner4, _game3Score]}";
+                game2Winner2 = game1Winner4;
             }
+
             #endregion
 
-            #region 1st and 2nd Place Winners
-            if (Convert.ToInt32(_tournament[bracket1WinnerRowG3, _game3Score]) > Convert.ToInt32(_tournament[bracket2WinnerRowG3, _game3Score]))
+            #region Game 3
+
+            int firstPlaceWinner;
+            int secondPlaceWinner;
+
+            if (Convert.ToInt32(_tournament[game2Winner1, _game3Score]) > Convert.ToInt32(_tournament[game2Winner2, _game3Score]))
             {
-                FirstPlaceTxt.Text = $"{_tournament[bracket1WinnerRowG3, _name]} $25";
-                SecondPlaceTxt.Text = $"{_tournament[bracket2WinnerRowG3, _name]} $10";
+                firstPlaceWinner = game2Winner1;
+                secondPlaceWinner = game2Winner2;
             }
             else
             {
-                FirstPlaceTxt.Text = $"{_tournament[bracket2WinnerRowG3, _name]} $25";
-                SecondPlaceTxt.Text = $"{_tournament[bracket1WinnerRowG3, _name]} $10";
+                firstPlaceWinner = game2Winner2;
+                secondPlaceWinner = game2Winner1;
             }
+
+            #endregion
+
+            #region Display 1st and 2nd place winners
+
+            FirstPlaceTxt.Text = $"{_tournament[firstPlaceWinner, _name]} $25";
+            SecondPlaceTxt.Text = $"{_tournament[secondPlaceWinner, _name]} $10";
+
             #endregion
         }
 
+        /// <summary>
+        /// Generates a random player based on their row number in the multi-dimensional array.
+        /// Returns an unassigned number.
+        /// </summary>
+        /// <param name="assignedPlayerNums">List that keeps track of the assigned numbers.</param>
         private int GetPlayer(List<int> assignedPlayerNums)
         {
             Random rand = new Random();
@@ -247,8 +291,11 @@ namespace BowlingTournamentBrackets
 
             while (keepGoing)
             {
+                // Generate a random number from 0 - 7
                 int num = rand.Next(0, 8);
 
+                // If that number hasn't been assigned, assign it to playerNumber
+                // and return it.
                 if (!assignedPlayerNums.Contains(num))
                 {
                     assignedPlayerNums.Add(num);
@@ -264,6 +311,11 @@ namespace BowlingTournamentBrackets
             return playerNumber;
         }
 
+        /// <summary>
+        /// Clears all the text boxes, and re-enables the generate button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             // Enable the generate button 
