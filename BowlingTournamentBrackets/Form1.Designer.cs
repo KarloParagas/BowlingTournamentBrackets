@@ -54,6 +54,7 @@
             // 
             // SecondPlaceTxt
             // 
+            this.SecondPlaceTxt.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.SecondPlaceTxt.Location = new System.Drawing.Point(450, 309);
             this.SecondPlaceTxt.Name = "SecondPlaceTxt";
             this.SecondPlaceTxt.ReadOnly = true;
@@ -63,6 +64,7 @@
             // 
             // FirstPlaceTxt
             // 
+            this.FirstPlaceTxt.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FirstPlaceTxt.Location = new System.Drawing.Point(450, 282);
             this.FirstPlaceTxt.Name = "FirstPlaceTxt";
             this.FirstPlaceTxt.ReadOnly = true;
@@ -92,6 +94,7 @@
             // 
             // Game3Txt2
             // 
+            this.Game3Txt2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game3Txt2.Location = new System.Drawing.Point(300, 428);
             this.Game3Txt2.Name = "Game3Txt2";
             this.Game3Txt2.ReadOnly = true;
@@ -101,6 +104,7 @@
             // 
             // Game3Txt1
             // 
+            this.Game3Txt1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game3Txt1.Location = new System.Drawing.Point(300, 155);
             this.Game3Txt1.Name = "Game3Txt1";
             this.Game3Txt1.ReadOnly = true;
@@ -110,6 +114,7 @@
             // 
             // Game2Txt4
             // 
+            this.Game2Txt4.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game2Txt4.Location = new System.Drawing.Point(155, 491);
             this.Game2Txt4.Name = "Game2Txt4";
             this.Game2Txt4.ReadOnly = true;
@@ -119,6 +124,7 @@
             // 
             // Game2Txt3
             // 
+            this.Game2Txt3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game2Txt3.Location = new System.Drawing.Point(155, 357);
             this.Game2Txt3.Name = "Game2Txt3";
             this.Game2Txt3.ReadOnly = true;
@@ -128,6 +134,7 @@
             // 
             // Game2Txt2
             // 
+            this.Game2Txt2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game2Txt2.Location = new System.Drawing.Point(155, 222);
             this.Game2Txt2.Name = "Game2Txt2";
             this.Game2Txt2.ReadOnly = true;
@@ -137,6 +144,7 @@
             // 
             // Game2Txt1
             // 
+            this.Game2Txt1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game2Txt1.Location = new System.Drawing.Point(155, 88);
             this.Game2Txt1.Name = "Game2Txt1";
             this.Game2Txt1.ReadOnly = true;
@@ -156,6 +164,7 @@
             // 
             // Game1Txt8
             // 
+            this.Game1Txt8.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game1Txt8.Location = new System.Drawing.Point(14, 517);
             this.Game1Txt8.Name = "Game1Txt8";
             this.Game1Txt8.ReadOnly = true;
@@ -165,6 +174,7 @@
             // 
             // Game1Txt7
             // 
+            this.Game1Txt7.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game1Txt7.Location = new System.Drawing.Point(14, 465);
             this.Game1Txt7.Name = "Game1Txt7";
             this.Game1Txt7.ReadOnly = true;
@@ -174,6 +184,7 @@
             // 
             // Game1Txt6
             // 
+            this.Game1Txt6.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game1Txt6.Location = new System.Drawing.Point(14, 386);
             this.Game1Txt6.Name = "Game1Txt6";
             this.Game1Txt6.ReadOnly = true;
@@ -183,6 +194,7 @@
             // 
             // Game1Txt5
             // 
+            this.Game1Txt5.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game1Txt5.Location = new System.Drawing.Point(14, 333);
             this.Game1Txt5.Name = "Game1Txt5";
             this.Game1Txt5.ReadOnly = true;
@@ -192,6 +204,7 @@
             // 
             // Game1Txt4
             // 
+            this.Game1Txt4.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game1Txt4.Location = new System.Drawing.Point(14, 247);
             this.Game1Txt4.Name = "Game1Txt4";
             this.Game1Txt4.ReadOnly = true;
@@ -201,6 +214,7 @@
             // 
             // Game1Txt3
             // 
+            this.Game1Txt3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game1Txt3.Location = new System.Drawing.Point(14, 195);
             this.Game1Txt3.Name = "Game1Txt3";
             this.Game1Txt3.ReadOnly = true;
@@ -210,6 +224,7 @@
             // 
             // Game1Txt2
             // 
+            this.Game1Txt2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game1Txt2.Location = new System.Drawing.Point(14, 116);
             this.Game1Txt2.Name = "Game1Txt2";
             this.Game1Txt2.ReadOnly = true;
@@ -219,6 +234,7 @@
             // 
             // Game1Txt1
             // 
+            this.Game1Txt1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Game1Txt1.Location = new System.Drawing.Point(14, 63);
             this.Game1Txt1.Name = "Game1Txt1";
             this.Game1Txt1.ReadOnly = true;
