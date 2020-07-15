@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,9 @@ namespace BowlingTournamentBrackets
         private const int _game1Score = 1;
         private const int _game2Score = 2;
         private const int _game3Score = 3;
+
+        private int TotalRows { get; set; }
+        private int TotalColumns { get; set; }
 
         private int Player1Row { get; set; }
         private int Player2Row { get; set; }
@@ -52,6 +56,12 @@ namespace BowlingTournamentBrackets
                                 StringSplitOptions.RemoveEmptyEntries
                             ).ToArray();
 
+            // Assign the total rows
+            TotalRows = file.Length;
+
+            // Assign the total columns
+            TotalColumns = file[0].Split(' ').Length;
+
             // Loop through each line and splits each item in that line (by whitespace) into an array
             foreach (string line in file) 
             {
@@ -67,8 +77,8 @@ namespace BowlingTournamentBrackets
 
         private void TournamentBracketsForm_Load(object sender, EventArgs e)
         {
-            int line = 8; // There's 8 lines in the text file
-            int lineItems = 4; // There are 4 items in each line
+            int line = TotalRows; // There's 8 lines in the text file
+            int lineItems = TotalColumns; // There are 4 items in each line
 
             // Create a multi-dimensional array to store the file contents
             string[,] tournamentDataArray = new string[line, lineItems];
@@ -119,11 +129,12 @@ namespace BowlingTournamentBrackets
         /// <param name="e"></param>
         private void GenerateTournamentBtn_Click(object sender, EventArgs e)
         {
+            //var startTime = Stopwatch.StartNew();
+
             #region Assumptions
 
             /*
                 - Text file is valid and well formed with "Name Score1 Score2 Score3", per line.
-                - Text file contains 8 players with 3 scores each.
              */
 
             #endregion
@@ -275,6 +286,10 @@ namespace BowlingTournamentBrackets
             SecondPlaceTxt.Text = $"{_tournament[secondPlaceWinner, _name]} $10";
 
             #endregion
+
+            //startTime.Stop();
+            //var endTime = startTime.ElapsedMilliseconds;
+            //MessageBox.Show($"The tournament bracket simulation took: {endTime} ms");
         }
 
         /// <summary>
