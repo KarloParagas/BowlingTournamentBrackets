@@ -129,8 +129,6 @@ namespace BowlingTournamentBrackets
         /// <param name="e"></param>
         private void GenerateTournamentBtn_Click(object sender, EventArgs e)
         {
-            //var startTime = Stopwatch.StartNew();
-
             #region Assumptions
 
             /*
@@ -147,7 +145,7 @@ namespace BowlingTournamentBrackets
             // List to store all assigned players for randomization
             List<int> assignedPlayerNums = new List<int>();
 
-            // Assign random player numbers to each field
+            // Assign random player numbers to each property
             Player1Row = GetPlayer(assignedPlayerNums);
             Player2Row = GetPlayer(assignedPlayerNums);
             Player3Row = GetPlayer(assignedPlayerNums);
@@ -161,7 +159,44 @@ namespace BowlingTournamentBrackets
 
             #region Pre-Game
 
-            // Onces the player numbers have been assigned to the fields, 
+            PreGame();
+
+            #endregion
+
+            #region Game 1
+
+            int game1Winner1, game1Winner2, game1Winner3, game1Winner4;
+            Game1(out game1Winner1, out game1Winner2, out game1Winner3, out game1Winner4);
+
+            #endregion
+
+            #region Game 2
+
+            int game2Winner1, game2Winner2;
+            Game2(game1Winner1, game1Winner2, game1Winner3, game1Winner4, out game2Winner1, out game2Winner2);
+
+            #endregion
+
+            #region Game 3
+
+            int firstPlaceWinner, secondPlaceWinner;
+            Game3(game2Winner1, game2Winner2, out firstPlaceWinner, out secondPlaceWinner);
+
+            #endregion
+
+            #region Display 1st and 2nd place winners
+
+            DisplayWinners(firstPlaceWinner, secondPlaceWinner);
+
+            #endregion
+        }
+
+        /// <summary>
+        /// Displays the random players generated to each slot for Game 1.
+        /// </summary>
+        private void PreGame()
+        {
+            // Once the player numbers have been assigned to the fields, 
             // display them in the text boxes.
             Game1Txt1.Text = $"{_tournament[Player1Row, _name]} {_tournament[Player1Row, _game1Score]}";
             Game1Txt2.Text = $"{_tournament[Player2Row, _name]} {_tournament[Player2Row, _game1Score]}";
@@ -171,15 +206,17 @@ namespace BowlingTournamentBrackets
             Game1Txt6.Text = $"{_tournament[Player6Row, _name]} {_tournament[Player6Row, _game1Score]}";
             Game1Txt7.Text = $"{_tournament[Player7Row, _name]} {_tournament[Player7Row, _game1Score]}";
             Game1Txt8.Text = $"{_tournament[Player8Row, _name]} {_tournament[Player8Row, _game1Score]}";
+        }
 
-            #endregion
-
-            #region Game 1
-
-            int game1Winner1;
-            int game1Winner2;
-            int game1Winner3;
-            int game1Winner4;
+        /// <summary>
+        /// Runs the Game 1 tournament and advances the winners to Game 2.
+        /// </summary>
+        /// <param name="game1Winner1"></param>
+        /// <param name="game1Winner2"></param>
+        /// <param name="game1Winner3"></param>
+        /// <param name="game1Winner4"></param>
+        private void Game1(out int game1Winner1, out int game1Winner2, out int game1Winner3, out int game1Winner4)
+        {
 
             // Player 1 vs Player 2
             if (Convert.ToInt32(_tournament[Player1Row, _game1Score]) > Convert.ToInt32(_tournament[Player2Row, _game1Score]))
@@ -187,7 +224,7 @@ namespace BowlingTournamentBrackets
                 Game2Txt1.Text = $"{_tournament[Player1Row, _name]} {_tournament[Player1Row, _game2Score]}";
                 game1Winner1 = Player1Row;
             }
-            else 
+            else
             {
                 Game2Txt1.Text = $"{_tournament[Player2Row, _name]} {_tournament[Player2Row, _game2Score]}";
                 game1Winner1 = Player2Row;
@@ -199,7 +236,7 @@ namespace BowlingTournamentBrackets
                 Game2Txt2.Text = $"{_tournament[Player3Row, _name]} {_tournament[Player3Row, _game2Score]}";
                 game1Winner2 = Player3Row;
             }
-            else 
+            else
             {
                 Game2Txt2.Text = $"{_tournament[Player4Row, _name]} {_tournament[Player4Row, _game2Score]}";
                 game1Winner2 = Player4Row;
@@ -211,7 +248,7 @@ namespace BowlingTournamentBrackets
                 Game2Txt3.Text = $"{_tournament[Player5Row, _name]} {_tournament[Player5Row, _game2Score]}";
                 game1Winner3 = Player5Row;
             }
-            else 
+            else
             {
                 Game2Txt3.Text = $"{_tournament[Player6Row, _name]} {_tournament[Player6Row, _game2Score]}";
                 game1Winner3 = Player6Row;
@@ -223,18 +260,24 @@ namespace BowlingTournamentBrackets
                 Game2Txt4.Text = $"{_tournament[Player7Row, _name]} {_tournament[Player7Row, _game2Score]}";
                 game1Winner4 = Player7Row;
             }
-            else 
+            else
             {
                 Game2Txt4.Text = $"{_tournament[Player8Row, _name]} {_tournament[Player8Row, _game2Score]}";
                 game1Winner4 = Player8Row;
             }
+        }
 
-            #endregion
-
-            #region Game 2
-
-            int game2Winner1;
-            int game2Winner2;
+        /// <summary>
+        /// Runs the Game 2 tournament and advances the winners to Game 3.
+        /// </summary>
+        /// <param name="game1Winner1"></param>
+        /// <param name="game1Winner2"></param>
+        /// <param name="game1Winner3"></param>
+        /// <param name="game1Winner4"></param>
+        /// <param name="game2Winner1"></param>
+        /// <param name="game2Winner2"></param>
+        private void Game2(int game1Winner1, int game1Winner2, int game1Winner3, int game1Winner4, out int game2Winner1, out int game2Winner2)
+        {
 
             // Game 2 bracket 1 winner vs Game 2 bracket 2 winner
             if (Convert.ToInt32(_tournament[game1Winner1, _game2Score]) > Convert.ToInt32(_tournament[game1Winner2, _game2Score]))
@@ -242,7 +285,7 @@ namespace BowlingTournamentBrackets
                 Game3Txt1.Text = $"{_tournament[game1Winner1, _name]} {_tournament[game1Winner1, _game3Score]}";
                 game2Winner1 = game1Winner1;
             }
-            else 
+            else
             {
                 Game3Txt1.Text = $"{_tournament[game1Winner2, _name]} {_tournament[game1Winner2, _game3Score]}";
                 game2Winner1 = game1Winner2;
@@ -259,14 +302,17 @@ namespace BowlingTournamentBrackets
                 Game3Txt2.Text = $"{_tournament[game1Winner4, _name]} {_tournament[game1Winner4, _game3Score]}";
                 game2Winner2 = game1Winner4;
             }
+        }
 
-            #endregion
-
-            #region Game 3
-
-            int firstPlaceWinner;
-            int secondPlaceWinner;
-
+        /// <summary>
+        /// Runs the Game 3 tournament and determines who is 1st and 2nd place.
+        /// </summary>
+        /// <param name="game2Winner1"></param>
+        /// <param name="game2Winner2"></param>
+        /// <param name="firstPlaceWinner"></param>
+        /// <param name="secondPlaceWinner"></param>
+        private void Game3(int game2Winner1, int game2Winner2, out int firstPlaceWinner, out int secondPlaceWinner)
+        {
             if (Convert.ToInt32(_tournament[game2Winner1, _game3Score]) > Convert.ToInt32(_tournament[game2Winner2, _game3Score]))
             {
                 firstPlaceWinner = game2Winner1;
@@ -277,19 +323,17 @@ namespace BowlingTournamentBrackets
                 firstPlaceWinner = game2Winner2;
                 secondPlaceWinner = game2Winner1;
             }
+        }
 
-            #endregion
-
-            #region Display 1st and 2nd place winners
-
+        /// <summary>
+        /// Displays the 1st and 2nd place winners.
+        /// </summary>
+        /// <param name="firstPlaceWinner"></param>
+        /// <param name="secondPlaceWinner"></param>
+        private void DisplayWinners(int firstPlaceWinner, int secondPlaceWinner)
+        {
             FirstPlaceTxt.Text = $"{_tournament[firstPlaceWinner, _name]} $25";
             SecondPlaceTxt.Text = $"{_tournament[secondPlaceWinner, _name]} $10";
-
-            #endregion
-
-            //startTime.Stop();
-            //var endTime = startTime.ElapsedMilliseconds;
-            //MessageBox.Show($"The tournament bracket simulation took: {endTime} ms");
         }
 
         /// <summary>
