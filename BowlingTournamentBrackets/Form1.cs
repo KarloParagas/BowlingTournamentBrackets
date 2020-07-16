@@ -16,7 +16,6 @@ namespace BowlingTournamentBrackets
 {
     public partial class TournamentBracketsForm : Form
     {
-        private readonly List<string> _file;
         public string[,] _tournament;
 
         private const int _name = 0;
@@ -39,14 +38,18 @@ namespace BowlingTournamentBrackets
         public TournamentBracketsForm()
         {
             InitializeComponent();
+        }
 
-            // Initialize the file list
-            _file = new List<string>();
+        private void TournamentBracketsForm_Load(object sender, EventArgs e)
+        {
+            // Create a file list
+            List<string> fileList = new List<string>();
 
             // Gets the embedded file path for tournament.txt
             string filePath = Resources.tournament;
 
             // Splits each line into an array
+            // This array should look like this: ["Ava 253 251 268", "Bob 252 251 268", "Dave 244 249 299", .......]
             string[] file = filePath.Split
                             (
                                 new[]
@@ -62,21 +65,21 @@ namespace BowlingTournamentBrackets
             // Assign the total columns
             TotalColumns = file[0].Split(' ').Length;
 
-            // Loop through each line and splits each item in that line (by whitespace) into an array
-            foreach (string line in file) 
+            // Loop through each line and split each item in that line (by whitespace) into an array
+            foreach (string lineItem in file)
             {
-                string[] lineAsArray = line.Split(' ');
+                // For example: For the first iteration, this array should look like ["Ava", "253", "251", "268"] when the line is split
+                string[] lineAsArray = lineItem.Split(' ');
 
-                // Loop through each item in the line once it's been divided into an array
-                foreach (string item in lineAsArray) 
+                // Loop through each element in lineAsArray once each item has 
+                // been split by whitespace and add it to the fileList
+                foreach (string item in lineAsArray)
                 {
-                    _file.Add(item);
+                    fileList.Add(item);
                 }
             }
-        }
 
-        private void TournamentBracketsForm_Load(object sender, EventArgs e)
-        {
+            // Get the total rows and columns to create the multi-dimensional array
             int line = TotalRows; // There's 8 lines in the text file
             int lineItems = TotalColumns; // There are 4 items in each line
 
@@ -90,7 +93,7 @@ namespace BowlingTournamentBrackets
             {
                 for (int col = 0; col < lineItems; col++) 
                 {
-                    tournamentDataArray[row, col] = _file[fileListIndex];
+                    tournamentDataArray[row, col] = fileList[fileListIndex];
                     fileListIndex++;
                 }
             }
