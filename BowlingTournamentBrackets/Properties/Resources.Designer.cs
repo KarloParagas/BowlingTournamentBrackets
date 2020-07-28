@@ -59,22 +59,5 @@ namespace BowlingTournamentBrackets.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ava 253 251 268
-        ///Bob 252 251 268
-        ///Dave 244 249 299
-        ///Eve 239 300 300
-        ///Frank 288 275 286
-        ///Gina 298 277 279
-        ///Hank 299 281 269
-        ///Ivy 228 295 294
-        ///.
-        /// </summary>
-        internal static string tournament {
-            get {
-                return ResourceManager.GetString("tournament", resourceCulture);
-            }
-        }
     }
 }
