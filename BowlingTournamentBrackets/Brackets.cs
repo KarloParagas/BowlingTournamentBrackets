@@ -42,22 +42,31 @@ namespace BowlingTournamentBrackets
 
         private void TournamentBracketsForm_Load(object sender, EventArgs e)
         {
+            // Open the file upload form
+            FileUpload uploadForm = new FileUpload();
+            DialogResult fileUpload = uploadForm.ShowDialog();
+
+            // If the user clicks the upload button on the file upload form
+            if (fileUpload == DialogResult.OK)
+            {
+                // Process the text file
+                ProcessTextFile();
+            }
+            else 
+            {
+                // Exit the program
+                System.Environment.Exit(1);
+            }
+        }
+
+        private void ProcessTextFile()
+        {
             // Create a file list
             List<string> fileList = new List<string>();
 
-            // Gets the embedded file path for tournament.txt
-            string filePath = Resources.tournament;
-
-            // Splits each line into an array
+            // Access the text tile then splits each line into an array
             // This array should look like this: ["Ava 253 251 268", "Bob 252 251 268", "Dave 244 249 299", .......]
-            string[] file = filePath.Split
-                            (
-                                new[]
-                                {
-                                    Environment.NewLine
-                                },
-                                StringSplitOptions.RemoveEmptyEntries
-                            ).ToArray();
+            string[] file = File.ReadAllLines(FileUpload.FilePath);
 
             // Assign the total rows
             TotalRows = file.Length;
@@ -89,9 +98,9 @@ namespace BowlingTournamentBrackets
             int fileListIndex = 0;
 
             // Loop through each row and column to add each bolwer and their 3 game scores
-            for (int row = 0; row < line; row++) 
+            for (int row = 0; row < line; row++)
             {
-                for (int col = 0; col < lineItems; col++) 
+                for (int col = 0; col < lineItems; col++)
                 {
                     tournamentDataArray[row, col] = fileList[fileListIndex];
                     fileListIndex++;
